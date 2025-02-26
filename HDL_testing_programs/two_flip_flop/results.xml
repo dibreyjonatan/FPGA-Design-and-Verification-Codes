@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1740084979" />
+    <testcase name="count_test" classname="testbench_2flipflop" file="/home/jonatan/HDL_testing_programs/two_flip_flop/testbench_2flipflop.py" lineno="19" time="0.02848649024963379" sim_time_ns="690.001" ratio_time="24222.04328976155" />
+  </testsuite>
+</testsuites>

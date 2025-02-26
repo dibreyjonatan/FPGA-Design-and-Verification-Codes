@@ -1,0 +1,8 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1739998148" />
+    <testcase name="count_test" classname="updown_counter_test" file="/home/jonatan/HDL_testing_programs/updowm_Counter/updown_counter_test.py" lineno="12" time="0.001901388168334961" sim_time_ns="20.001" ratio_time="10519.156652539186">
+      <failure message="Test failed with RANDOM_SEED=1739998148" />
+    </testcase>
+  </testsuite>
+</testsuites>

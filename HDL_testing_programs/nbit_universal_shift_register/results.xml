@@ -1,0 +1,8 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1739998506" />
+    <testcase name="count_test" classname="nbit_shiftregister_test" file="/home/jonatan/HDL_testing_programs/nbit_universal_shift_register/nbit_shiftregister_test.py" lineno="37" time="0.004502534866333008" sim_time_ns="60.001" ratio_time="13326.048943817845">
+      <failure message="Test failed with RANDOM_SEED=1739998506" />
+    </testcase>
+  </testsuite>
+</testsuites>

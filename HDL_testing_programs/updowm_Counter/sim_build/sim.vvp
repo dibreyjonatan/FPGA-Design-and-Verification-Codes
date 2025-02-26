@@ -1,0 +1,92 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2009.vpi";
+S_0x59e02b9ed490 .scope package, "$unit" "$unit" 2 1;
+ .timescale -9 -12;
+S_0x59e02b9ed620 .scope module, "up_down_counter" "up_down_counter" 3 2;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "reset";
+    .port_info 2 /INPUT 1 "up";
+    .port_info 3 /INPUT 1 "down";
+    .port_info 4 /OUTPUT 4 "count";
+L_0x59e02ba13ab0 .functor BUFZ 4, v0x59e02ba38600_0, C4<0000>, C4<0000>, C4<0000>;
+o0x7b078fc89018 .functor BUFZ 1, C4<z>; HiZ drive
+v0x59e02b9ff430_0 .net "clk", 0 0, o0x7b078fc89018;  0 drivers
+v0x59e02ba14090_0 .net "count", 3 0, L_0x59e02ba13ab0;  1 drivers
+v0x59e02ba38600_0 .var "counter", 3 0;
+o0x7b078fc890a8 .functor BUFZ 1, C4<z>; HiZ drive
+v0x59e02ba386c0_0 .net/2u "down", 0 0, o0x7b078fc890a8;  0 drivers
+o0x7b078fc890d8 .functor BUFZ 1, C4<z>; HiZ drive
+v0x59e02ba38780_0 .net/2u "reset", 0 0, o0x7b078fc890d8;  0 drivers
+o0x7b078fc89108 .functor BUFZ 1, C4<z>; HiZ drive
+v0x59e02ba38840_0 .net/2u "up", 0 0, o0x7b078fc89108;  0 drivers
+E_0x59e02ba26e20 .event posedge, v0x59e02b9ff430_0;
+    .scope S_0x59e02b9ed620;
+T_0 ;
+    %vpi_call/w 3 11 "$dumpfile", "dump.vcd" {0 0 0};
+    %vpi_call/w 3 12 "$dumpvars", 32'sb00000000000000000000000000000001, S_0x59e02b9ed620 {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_0x59e02b9ed620;
+T_1 ;
+    %wait E_0x59e02ba26e20;
+    %load/vec4 v0x59e02ba38780_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_1.0, 8;
+    %pushi/vec4 0, 0, 4;
+    %assign/vec4 v0x59e02ba38600_0, 0;
+T_1.0 ;
+    %load/vec4 v0x59e02ba38600_0;
+    %cmpi/u 0, 0, 4;
+    %jmp/1 T_1.4, 5;
+    %flag_mov 8, 5;
+    %load/vec4 v0x59e02ba38600_0;
+    %cmpi/u 15, 0, 4;
+    %flag_or 5, 4; GT is !LE
+    %flag_inv 5;
+    %flag_or 5, 8;
+T_1.4;
+    %jmp/0xz  T_1.2, 5;
+    %pushi/vec4 0, 0, 4;
+    %assign/vec4 v0x59e02ba38600_0, 0;
+T_1.2 ;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_0x59e02b9ed620;
+T_2 ;
+    %wait E_0x59e02ba26e20;
+    %load/vec4 v0x59e02ba38840_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_2.0, 8;
+    %load/vec4 v0x59e02ba38600_0;
+    %addi 1, 0, 4;
+    %assign/vec4 v0x59e02ba38600_0, 0;
+T_2.0 ;
+    %jmp T_2;
+    .thread T_2;
+    .scope S_0x59e02b9ed620;
+T_3 ;
+    %wait E_0x59e02ba26e20;
+    %load/vec4 v0x59e02ba386c0_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_3.0, 8;
+    %load/vec4 v0x59e02ba38600_0;
+    %subi 1, 0, 4;
+    %assign/vec4 v0x59e02ba38600_0, 0;
+T_3.0 ;
+    %jmp T_3;
+    .thread T_3;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "-";
+    "/home/jonatan/HDL_testing_programs/updowm_Counter/updown_counter.sv";

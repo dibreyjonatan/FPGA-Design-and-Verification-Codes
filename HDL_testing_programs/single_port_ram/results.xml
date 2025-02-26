@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1740006951" />
+    <testcase name="count_test" classname="testbench_single_port_ram" file="/home/jonatan/HDL_testing_programs/single_port_ram/testbench_single_port_ram.py" lineno="12" time="0.04183793067932129" sim_time_ns="1320.001" ratio_time="31550.341485995636" />
+  </testsuite>
+</testsuites>
