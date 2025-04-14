@@ -27,7 +27,6 @@ In addition to all the goodies of the Python programming language and its ecosys
 #### Installing Cocotb 
 ```
 pip install cocotb
-
 ```
 ### Installing icarus verilator
 
@@ -35,13 +34,11 @@ On ubuntu :
 
 ```
 sudo apt-get install verilator
-
 ```
 ### Checking GCC version
 
 ```
 gcc --version
-
 ```
 ## Running a Testbench 
 
@@ -49,5 +46,4 @@ gcc --version
 cd single_port_ram
 make clear 
 make 
-
 ```
