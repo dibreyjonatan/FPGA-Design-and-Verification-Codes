@@ -1,8 +1,0 @@
-<testsuites name="results">
-  <testsuite name="all" package="all">
-    <property name="random_seed" value="1740010021" />
-    <testcase name="count_test" classname="testbench_ram" file="/home/jonatan/HDL_testing_programs/ram_dual/testbench_ram.py" lineno="12" time="0.03553271293640137" sim_time_ns="1030.001" ratio_time="28987.401042063942">
-      <failure message="Test failed with RANDOM_SEED=1740010021" />
-    </testcase>
-  </testsuite>
-</testsuites>

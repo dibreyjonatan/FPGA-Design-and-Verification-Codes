@@ -1,8 +1,0 @@
-<testsuites name="results">
-  <testsuite name="all" package="all">
-    <property name="random_seed" value="1740143565" />
-    <testcase name="FlipFlop_Test" classname="testbench" file="/home/jonatan/Virtual_env/lib/python3.12/site-packages/pyuvm/extension_classes.py" lineno="157" time="0.008816719055175781" sim_time_ns="10.001" ratio_time="1134.322182368848">
-      <failure message="Test failed with RANDOM_SEED=1740143565" />
-    </testcase>
-  </testsuite>
-</testsuites>
