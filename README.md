@@ -1,6 +1,9 @@
 # HARDWARE VERIFICATION WITH COCOTB 
 *Overview*\
+
+
 `Here is a series of folders concerning hardware verification with cocotb and python under icarus verilog software.`
+
 
 Writing testbench in system verilog or VHDL is sometimes complicated 
 as the complexity of the design increases.So, writing testbench in 
@@ -16,27 +19,30 @@ Cocotb doesnot require any additional RTL code. The design under test (DUT) is i
 With cocotb you write testbenches and verification code in `python`.
 In addition to all the goodies of the Python programming language and its ecosystem, cocotb provides [a lean framework to efficiently write verification code](https://docs.cocotb.org)
 
-### Requirements for simulating COCOTB
+### Requirements for Writing Testbench using COCOTB
 - Linux environment 
 - Python 3.6+
 - GCC and associated development packages
 - GNU Make 3+
 - gnu compiler 
 - VHDL/Verilog simulator e.g icarus verilator 
+- Pytest
 
 #### Installing Cocotb 
 ```
 pip install cocotb
 ```
+#### Installing Pytest 
+```
+pip install pytest 
+```
 ### Installing icarus verilator
 
 On ubuntu :
-
 ```
 sudo apt-get install verilator
 ```
 ### Checking GCC version
-
 ```
 gcc --version
 ```
