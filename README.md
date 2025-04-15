@@ -55,3 +55,5 @@ cd single_port_ram
 make clear 
 make 
 ```
+### Result of the Ram testbench 
+![Ram test bench result](Capture_ramtest.PNG)
