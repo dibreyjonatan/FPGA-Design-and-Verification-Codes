@@ -1,6 +1,6 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
-    <property name="random_seed" value="1744660516" />
-    <testcase name="count_test" classname="counter_test" file="/home/jonatan/Hardware-Verification-with-Cocotb-and-python/Counter_test/counter_test.py" lineno="10" time="0.0035986900329589844" sim_time_ns="67.0" ratio_time="18617.885782430105" />
+    <property name="random_seed" value="1744705599" />
+    <testcase name="count_test" classname="counter_test" file="/home/jonatan/Hardware-Verification-with-Cocotb-and-python/Counter_test/counter_test.py" lineno="24" time="0.006935834884643555" sim_time_ns="67.0" ratio_time="9659.976212574336" />
   </testsuite>
 </testsuites>

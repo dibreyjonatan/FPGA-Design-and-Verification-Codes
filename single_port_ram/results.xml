@@ -1,6 +1,6 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
-    <property name="random_seed" value="1744659365" />
-    <testcase name="count_test" classname="testbench_single_port_ram" file="/home/jonatan/Hardware-Verification-with-Cocotb-and-python/HDL_testing_programs/single_port_ram/testbench_single_port_ram.py" lineno="12" time="0.04804801940917969" sim_time_ns="1320.001" ratio_time="27472.5371874082" />
+    <property name="random_seed" value="1744705888" />
+    <testcase name="count_test" classname="testbench_single_port_ram" file="/home/jonatan/Hardware-Verification-with-Cocotb-and-python/single_port_ram/testbench_single_port_ram.py" lineno="22" time="0.0847320556640625" sim_time_ns="1320.001" ratio_time="15578.53152097965" />
   </testsuite>
 </testsuites>
