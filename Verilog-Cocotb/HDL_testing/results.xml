@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1739998827" />
+    <testcase name="andgate_test" classname="first_pytest" file="/home/jonatan/HDL_testing_programs/HDL_testing/first_pytest.py" lineno="5" time="0.0017518997192382812" sim_time_ns="20.001" ratio_time="11416.749360914535" />
+  </testsuite>
+</testsuites>

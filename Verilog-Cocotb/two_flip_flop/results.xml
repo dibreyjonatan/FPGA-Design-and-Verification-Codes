@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1744659530" />
+    <testcase name="count_test" classname="testbench_2flipflop" file="/home/jonatan/Hardware-Verification-with-Cocotb-and-python/HDL_testing_programs/two_flip_flop/testbench_2flipflop.py" lineno="19" time="0.03862476348876953" sim_time_ns="690.001" ratio_time="17864.21294723587" />
+  </testsuite>
+</testsuites>
