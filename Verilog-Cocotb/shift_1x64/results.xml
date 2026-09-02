@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1744660629" />
+    <testcase name="count_test" classname="testbench_shift_1x64" file="/home/jonatan/Hardware-Verification-with-Cocotb-and-python/HDL_testing_programs/shift_1x64/testbench_shift_1x64.py" lineno="1" time="0.08242177963256836" sim_time_ns="1320.001" ratio_time="16015.196540095227" />
+  </testsuite>
+</testsuites>
