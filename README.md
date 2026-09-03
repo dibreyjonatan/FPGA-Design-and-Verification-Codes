@@ -1,6 +1,7 @@
+# GTKWAVE RESULTS WITH PWM
+
+![pwm_result](gtkwave_pwm.PNG)
 # HARDWARE VERIFICATION WITH COCOTB 
-
-
 *Overview*
 
 
