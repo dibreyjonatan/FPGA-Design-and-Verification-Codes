@@ -1,6 +1,6 @@
 # GTKWAVE RESULTS WITH PWM
 
-![pwm_result](gtkwave_pwm.PNG)
+![pwm_result](images/gtkwave_pwm.PNG)
 # HARDWARE VERIFICATION WITH COCOTB 
 *Overview*
 
@@ -57,4 +57,4 @@ make clear
 make 
 ```
 ### Result of the Ram testbench 
-![Ram test bench result](Capture_ramtest.PNG)
+![Ram test bench result](images/Capture_ramtest.PNG)
