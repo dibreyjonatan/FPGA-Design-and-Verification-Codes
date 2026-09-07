@@ -1,3 +1,8 @@
+# GTKWAVE RESULTS OF SIMULATIONS 
+results of the test bench simulation of hierachical programming in vhdl.
+I used top for upper level architecture and pwm as a low-level architecture
+
+![pwm_result](images/gtkwave_hierachie.PNG)
 # GTKWAVE RESULTS WITH PWM
 
 ![pwm_result](images/gtkwave_pwm.PNG)
