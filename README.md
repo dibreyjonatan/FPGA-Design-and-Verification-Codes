@@ -1,3 +1,16 @@
+# SIMULATION PROCEDURE OF GHDL AND GTKWAVE
+The steps were implemented ton the projet ( vhdl/pwm_hierachique)
+- compile the pwm entity
+> ghdl -a --std=08 projet1_led.vhd
+- compile the top level entity 
+> ghdl -a --std=08 top.vhd
+- compile the test bench
+> ghdl -a --std=08 tp_top.vhd
+- run the simulation and produce the simulation.vcd file to be read by gtkwave
+> ghdl -r --std=08 tb_top --vcd=simulation.vcd
+- launch gtkwave
+> gtkwave simulation.vcd
+ 
 # GTKWAVE RESULTS OF SIMULATIONS 
 results of the test bench simulation of hierachical programming in vhdl.
 I used top for upper level architecture and pwm as a low-level architecture
