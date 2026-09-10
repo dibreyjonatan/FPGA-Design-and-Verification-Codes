@@ -20,7 +20,7 @@ architecture beh of clk_1Mhz is
 begin
  
     process(clk, rst)
-variable counter : integer range 0 to PSC-1 ;
+variable counter : integer range 0 to PSC-1;
  
  
     begin
@@ -34,8 +34,8 @@ clk_count <='0' ;
         elsif rising_edge(clk) then
             clk_adc <= clk_count ;
  
-            if counter = PSC then 
-              counter := 0 ;
+            if counter = PSC-1 then 
+                 counter := 0 ;
 				 clk_count<=not(clk_count) ;
 				else 
 						counter := counter +1 ;
