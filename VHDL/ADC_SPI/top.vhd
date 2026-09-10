@@ -17,6 +17,8 @@ entity top is
 end top;
 
 architecture beh of top is 
+      type etats is (START,READY, CONVERT, ATTENTE) ;
+      signal ep, es : etats ; 
 	  signal clk_conversion : std_logic ; 
 	 Component clk_1MHz
   port(
@@ -36,5 +38,6 @@ begin
 	 ) ;
 	 -- affectation du signal d'horloge 
 	 clk_adc <=clk_conversion ; 
+	 
 
 end beh;
