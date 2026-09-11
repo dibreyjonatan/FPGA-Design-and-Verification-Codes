@@ -13,7 +13,7 @@ entity top is
 		data_adc : in std_logic ;
 		clk_adc : out std_logic ;
 		data_output : out std_logic_vector( max-2 downto 0 ) ; 
-		cs : out std_logic ); -- pas de conversion     
+		cs : out std_logic ); -- pas de conversion si cs=1 et conversion si cs=0
 end top;
 
 architecture beh of top is 
@@ -56,6 +56,7 @@ begin
       end process ; 
 	  
 	  -- process combinant entrées et sorties
+	  -- je synchronise se process sur les deux process 
 	  process(clk,clk_conversion)
 	  
 	  begin 
@@ -86,7 +87,6 @@ begin
      when ATTENTE =>
           if (fin_tim='1') then 
            es<=START ;
-		   fin_tim <='0' ;
           else 
 		  cs<='1' ;
           es<=ATTENTE;	
