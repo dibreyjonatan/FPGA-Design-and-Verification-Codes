@@ -11,6 +11,13 @@ The steps were implemented ton the projet ( vhdl/pwm_hierachique)
 - launch gtkwave
 > gtkwave simulation.vcd
  
+ ### Visulaise state machines in simulation 
+ - compile to have a .ghw file
+ > ghdl -r --std=08 tb_top --wave=wave.ghw
+ - visualise
+ > gtkwave wave.ghw 
+ # GTKWAVE SIMULATION FOR ADC 
+ ![adc](images/conversion_adc.PNG)
 # GTKWAVE RESULTS OF SIMULATIONS 
 results of the test bench simulation of hierachical programming in vhdl.
 I used top for upper level architecture and pwm as a low-level architecture
