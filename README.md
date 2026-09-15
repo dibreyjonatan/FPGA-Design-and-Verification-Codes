@@ -17,6 +17,7 @@ The steps were implemented ton the projet ( vhdl/pwm_hierachique)
  - visualise
  > gtkwave wave.ghw 
  # GTKWAVE SIMULATION FOR ADC 
+ ![adc_results](images/conversion_reussit.PNG)
  ![adc](images/conversion_adc.PNG)
 # GTKWAVE RESULTS OF SIMULATIONS 
 results of the test bench simulation of hierachical programming in vhdl.
