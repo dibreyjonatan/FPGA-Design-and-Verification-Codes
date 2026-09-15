@@ -8,9 +8,9 @@ file . "top.vhd" "88ec3e468656c2d8bf1a94b3af5b4a39dd451f36" "20260914071127.985"
 file . "clk_1Mhz.vhd" "351fe2100fb6fd531c15a4606244d9ce8f402736" "20260914071112.480":
   entity clk_1mhz at 1( 0) + 0 on 143;
   architecture beh of clk_1mhz at 17( 316) + 0 on 144;
-file . "mcp3201_driver.vhd" "8ff5b0f1648e79f1813270cd97069684cb982888" "20260915085759.171":
-  entity mcp3201_driver at 1( 0) + 0 on 275;
-  architecture behavioral of mcp3201_driver at 17( 421) + 0 on 276;
-file . "tb_mcp3201_driver.vhd" "9f9dd154141f1b7f62c9f87335f9bb6759be0b02" "20260915085800.415":
-  entity tb_mcp3201_driver at 1( 0) + 0 on 277;
-  architecture sim of tb_mcp3201_driver at 9( 147) + 0 on 278;
+file . "mcp3201_driver.vhd" "b0f32c68563e1d3243d527b9ac98847bed0ab71a" "20260915171416.378":
+  entity mcp3201_driver at 1( 0) + 0 on 295;
+  architecture behavioral of mcp3201_driver at 20( 486) + 0 on 296;
+file . "tb_mcp3201_driver.vhd" "9f9dd154141f1b7f62c9f87335f9bb6759be0b02" "20260915171418.564":
+  entity tb_mcp3201_driver at 1( 0) + 0 on 297;
+  architecture sim of tb_mcp3201_driver at 9( 147) + 0 on 298;
