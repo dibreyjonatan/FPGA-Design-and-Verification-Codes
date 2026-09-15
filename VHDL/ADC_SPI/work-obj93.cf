@@ -1,0 +1,4 @@
+v 4
+file . "mcp3201_driver.vhd" "2f7c925712d12283f56254df443910629986a444" "20260915081513.823":
+  entity mcp3201_driver at 1( 0) + 0 on 13;
+  architecture behavioral of mcp3201_driver at 17( 435) + 0 on 14;
