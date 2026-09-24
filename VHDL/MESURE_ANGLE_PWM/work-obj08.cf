@@ -1,7 +1,7 @@
 v 4
-file . "tb_cmps03.vhd" "59f4c62a73874f689fe308911aed9a07ab280aad" "20260924092253.139":
-  entity tb_cmps03 at 1( 0) + 0 on 39;
-  architecture sim of tb_cmps03 at 8( 110) + 0 on 40;
-file . "cmps03.vhd" "0be1d6fe4be39cdbff1eab0e0d0644cbfdc72ca5" "20260924092250.559":
-  entity cmps03 at 1( 0) + 0 on 37;
-  architecture mealy of cmps03 at 22( 597) + 0 on 38;
+file . "cmps03.vhd" "2b034c8bdee6f9600f561dad2cc8e0750627d79b" "20260924212559.289":
+  entity cmps03 at 1( 0) + 0 on 67;
+  architecture behavior of cmps03 at 23( 638) + 0 on 68;
+file . "tb_cmps03.vhd" "2de609671d7fee007fe9a5afca1c4fab8233bc25" "20260924212600.799":
+  entity tb_cmps03 at 1( 0) + 0 on 69;
+  architecture sim of tb_cmps03 at 8( 110) + 0 on 70;

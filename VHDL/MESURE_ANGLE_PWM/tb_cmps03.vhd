@@ -28,10 +28,11 @@ begin
             clk           => clk,
             rst           => rst,
             in_pwm_compas => pwm,
-            continu       => '0',
+            continu       => '1',
             start_stop    => '0',
             data_valid    => data_valid,
-            data_compas   => data_compas
+            data_compas   => data_compas,
+			cmd => '0' 
         );
 
     stim : process
