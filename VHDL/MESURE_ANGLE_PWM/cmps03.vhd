@@ -25,24 +25,19 @@ architecture behavior of cmps03 is
     constant TICK_CYC : natural := CLK_FREQ_HZ / 10000; -- 100us = 1 degre
     constant OFFSET   : natural := 10;                  -- 1 ms
 
-    type state_t is (S_IDLE,S_ATTENTE, S_COUNT, S_WAIT_WINDOW,  S_WAIT_CMD);
-    signal state, next_state : state_t := S_IDLE;
+    type state_t is (DECISION, WAIT_CMD, IDLE, ATTENTE, COUNT, WAIT_WINDOW);
+    signal state, next_state : state_t := DECISION;
 	
     signal cmpt_tick : integer range 0 to TICK_CYC - 1 := 0;
     signal angle     : integer range 0 to 511 := 0;
-    signal data_out  : std_logic_vector(8 downto 0) := (others => '0');
-
+   
     signal ms_cmpt     : integer range 0 to MS_CYC - 1 := 0;
     signal fin_tim     : std_logic := '0';
     signal time_cont   : integer range 0 to period := 0;
-    signal window_done : std_logic;
-    signal clk_pwm : std_logic :='0';
-	 
+    signal window_done : std_logic;	 
 begin
-
-    window_done <= '1' when (fin_tim = '1' and time_cont = period - 1) else '0';
      
-        -- sortie Oscilloscope
+     	-- sortie Oscilloscope
        out_oscillo <= in_pwm_compas ; 
 
     
@@ -50,7 +45,7 @@ begin
     p_state_reg : process(clk, rst)
     begin
         if rst = '0' then
-            state <= S_IDLE;
+            state <= DECISION;
         elsif rising_edge(clk) then
             state <= next_state;
         end if;
@@ -62,46 +57,57 @@ begin
     begin
         next_state <= state;
         case state is
-            when S_IDLE =>
+		   When DECISION =>
+		        if continu='1' then  
+				   next_state <= IDLE ;
+				elsif continu='0' then 
+                   next_state <= WAIT_CMD ; 
+                end if ; 				   
+		
+		   when WAIT_CMD =>
+				if cmd = '1' then
+					next_state <= IDLE;
+			    else 
+             		next_state <= WAIT_CMD; 		
+				end if;	
+                if continu='1' then 
+				    next_state <= DECISION;
+				end if ; 
+				
+				
+            when IDLE =>
 			
                 if  in_pwm_compas= '1' then
-                    next_state <=S_IDLE ;
+                    next_state <=IDLE ;
 			    else 
-				    next_state <=S_ATTENTE ;
+				    next_state <=ATTENTE ;
                 end if;
 				
-		     when S_ATTENTE =>
+		     when ATTENTE =>
 			 
                 if  in_pwm_compas= '0' then
-                    next_state <=S_ATTENTE ;
+                    next_state <=ATTENTE ;
 			    else 
-				    next_state <=S_COUNT ;
+				    next_state <=COUNT ;
                 end if;		
 				
-            when S_COUNT =>
+            when COUNT =>
 			
                 if in_pwm_compas = '1' then
-                    next_state <= S_COUNT;
+                    next_state <= COUNT;
 				else 
-				    next_state <=S_WAIT_WINDOW;	
+				    next_state <=WAIT_WINDOW;	
                 end if;
 				
-            when S_WAIT_WINDOW =>
+            when WAIT_WINDOW =>
 			
                 if window_done = '1' then
                    if continu = '1' then
-                      next_state <= S_IDLE;      
+                      next_state <= IDLE;      
                   else
-                      next_state <= S_WAIT_CMD; 
+                      next_state <= DECISION; 
                   end if;
-                end if;
-		    
-            when S_WAIT_CMD =>
-				if cmd = '1' then
-					next_state <= S_IDLE;
-			    else 
-             		next_state <= S_WAIT_CMD; 		
-				end if;			
+                end if;	
         end case;
     end process;
 
@@ -112,17 +118,17 @@ begin
         if rst = '0' then
             cmpt_tick   <= 0;
             angle       <= 0;
-            data_out    <= (others => '0');
              data_valid <= '0';
             time_cont   <= 0;
+			 window_done <= '0' ; 
             data_compas <= (others => '0');
         elsif rising_edge(clk) then
            
             case state is
-                when S_IDLE =>
-				
+                when IDLE =>
+				        -- window_done <= '0' ; 
 						cmpt_tick   <= 0;
-				when S_ATTENTE =>
+				when ATTENTE =>
 				
                     if  in_pwm_compas= '1' then
 					   data_valid <= '0';
@@ -130,12 +136,12 @@ begin
                         angle     <= 0;
                     end if;
 					
-                when S_COUNT =>
+                when COUNT =>
 				
                     if in_pwm_compas = '0' then
                         if angle >= OFFSET then a := angle - OFFSET; else a := 0; end if;
                         if a > 359 then a := 359; end if;
-                        data_out <= std_logic_vector(to_unsigned(a, 9));
+                          data_compas <= std_logic_vector(to_unsigned(a, 9));
 						   data_valid <= '1';
                     elsif in_pwm_compas = '1' then
                           
@@ -148,13 +154,16 @@ begin
                                 
                     end if;
 
-                when S_WAIT_WINDOW =>
-                    if window_done = '1' then
+                when WAIT_WINDOW =>
+				
+                    if time_cont=period-1 then
                         time_cont   <= 0;
-                        data_compas <= data_out;
+						 window_done <= '1' ; 
                     elsif fin_tim = '1' then
+					     window_done <= '0' ; 
                         time_cont <= time_cont + 1;
                     end if;
+					
 			    when others => null ; 		
             end case;
         end if;
