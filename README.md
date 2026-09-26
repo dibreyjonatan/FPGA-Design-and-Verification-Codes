@@ -1,3 +1,12 @@
+# MESURE CMPS03
+### Machine à état 
+![pwm_compass](images/pwm_statemachine.png)
+## Resultats de la Simulation
+![exec_simu](images/resultat_mesure_compass.PNG)
+![pwm_simu](images/conversion_mono_coup_continu.PNG)
+### Observation du delai de 1s
+Pour un rafraichissement d'une seconde en continu. On a 65ms après la mesure et esnuite 935ms d'attente.
+![delai_1ms](images/pwm_compass.PNG)
 # SIMULATION PROCEDURE OF GHDL AND GTKWAVE
 The steps were implemented ton the projet ( vhdl/pwm_hierachique)
 - compile the pwm entity
