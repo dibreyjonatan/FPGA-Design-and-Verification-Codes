@@ -21,20 +21,22 @@ entity cmps03 is
 end entity;
 
 architecture behavior of cmps03 is
-    constant MS_CYC   : natural := CLK_FREQ_HZ / 1000;
+    constant MS_CYC   : natural := (CLK_FREQ_HZ*period) / 1000;
+    constant CYCLE_S : natural := (CLK_FREQ_HZ * 935) / 1000; -- c'est pour 935ms  ( rafraichisement toutes les 1s, donc 65ms+935ms)  
     constant TICK_CYC : natural := CLK_FREQ_HZ / 10000; -- 100us = 1 degre
     constant OFFSET   : natural := 10;                  -- 1 ms
 
-    type state_t is (DECISION, WAIT_CMD, IDLE, ATTENTE, COUNT, WAIT_WINDOW);
+    type state_t is (DECISION, WAIT_CMD, IDLE, ATTENTE, COUNT, WAIT_WINDOW, WAIT_PERIOD);
     signal state, next_state : state_t := DECISION;
 	
     signal cmpt_tick : integer range 0 to TICK_CYC - 1 := 0;
     signal angle     : integer range 0 to 511 := 0;
    
-    signal ms_cmpt     : integer range 0 to MS_CYC - 1 := 0;
     signal fin_tim     : std_logic := '0';
-    signal time_cont   : integer range 0 to period := 0;
-    signal window_done : std_logic;	 
+	signal fin_timer_1s : std_logic :='0';
+	signal demarre_timer:  std_logic :='0';
+	signal demarre_65ms : std_logic :='0' ; 
+	
 begin
      
      	-- sortie Oscilloscope
@@ -53,7 +55,7 @@ begin
 
   
     -- PROCESS : combinatoire
-    p_next_state : process(state, window_done, in_pwm_compas)
+    p_next_state : process(state, fin_tim, fin_timer_1s, in_pwm_compas)
     begin
         next_state <= state;
         case state is
@@ -101,13 +103,21 @@ begin
 				
             when WAIT_WINDOW =>
 			
-                if window_done = '1' then
+                if fin_tim = '1' then
                    if continu = '1' then
-                      next_state <= IDLE;      
+                      next_state <= WAIT_PERIOD;      
                   else
                       next_state <= DECISION; 
                   end if;
-                end if;	
+				else 
+                      next_state <= WAIT_WINDOW;      				
+                end if;
+            when WAIT_PERIOD =>
+                if fin_timer_1s='1' then 
+                   next_state <= IDLE ;
+               else 
+                   next_state <= WAIT_PERIOD; 
+                end if ; 				
         end case;
     end process;
 
@@ -118,20 +128,21 @@ begin
         if rst = '0' then
             cmpt_tick   <= 0;
             angle       <= 0;
-             data_valid <= '0';
-            time_cont   <= 0;
-			 window_done <= '0' ; 
+            data_valid <= '0'; 
+			demarre_timer <= '0' ; 	
+		    demarre_65ms <='0' ; 			
             data_compas <= (others => '0');
         elsif rising_edge(clk) then
            
             case state is
                 when IDLE =>
-				        -- window_done <= '0' ; 
+				        
+						demarre_timer <= '0' ; 		
 						cmpt_tick   <= 0;
 				when ATTENTE =>
 				
                     if  in_pwm_compas= '1' then
-					   data_valid <= '0';
+					    data_valid <= '0';
                         cmpt_tick <= 1;
                         angle     <= 0;
                     end if;
@@ -155,21 +166,24 @@ begin
                     end if;
 
                 when WAIT_WINDOW =>
+				        demarre_65ms <='1' ; 
+						-- if fin_tim='1' then 
+						  --    demarre_65ms <='0' ;
+                         --end if ; 							  
+                   
+			    when WAIT_PERIOD =>	
+				           demarre_65ms <='0' ; 
+					       demarre_timer <= '1' ; 	
+			    when DECISION =>
+				        -- dans le cas de monocoup, nous avons mis cette commande à 0 après l'état WAIT WINDOW
+                        demarre_65ms <='0' ; 				
+			    when others => null ; 	
 				
-                    if time_cont=period-1 then
-                        time_cont   <= 0;
-						 window_done <= '1' ; 
-                    elsif fin_tim = '1' then
-					     window_done <= '0' ; 
-                        time_cont <= time_cont + 1;
-                    end if;
-					
-			    when others => null ; 		
             end case;
         end if;
     end process;
      
-      -- compteur de 1ms 
+      -- compteur de 65ms 
       
       process(clk, rst)
         variable cmpt : integer range 0 to MS_CYC - 1 := 0;
@@ -178,6 +192,8 @@ begin
             cmpt    := 0;
             fin_tim <= '0';
         elsif rising_edge(clk) then
+		  if demarre_65ms='1' then 
+		  
             if cmpt = MS_CYC - 1 then
                 cmpt    := 0;
                 fin_tim <= '1';
@@ -185,8 +201,42 @@ begin
                 cmpt    := cmpt + 1;
                 fin_tim <= '0';
             end if;
+			
+	     else 
+		       cmpt    := 0;
+                fin_tim <= '0';
+          end if ; 		
+		  
         end if;
     end process;
      
+     -- compteur de 0.935s pour le continu  
+      process(clk, rst)
+    variable cmpt : integer range 0 to CYCLE_S - 1 := 0;
+begin
+    if rst = '0' then
+        cmpt := 0;
+        fin_timer_1s <= '0';
+
+    elsif rising_edge(clk) then
+
+        if demarre_timer = '1' then
+
+            if cmpt = CYCLE_S - 1 then
+                cmpt := 0;
+                fin_timer_1s <= '1';
+            else
+                cmpt := cmpt + 1;
+                fin_timer_1s <= '0';
+            end if;
+
+        else
+            cmpt := 0;
+            fin_timer_1s <= '0';
+        end if;
+
+    end if;
+end process;
+	
 
 end architecture;
