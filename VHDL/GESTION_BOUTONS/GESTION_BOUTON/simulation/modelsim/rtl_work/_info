@@ -1,0 +1,171 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/admin/Desktop/FPGA/GESTION_BOUTON/simulation/modelsim
+Edebounce_niveau
+Z1 w1794560697
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z4 8C:/Users/admin/Desktop/FPGA/GESTION_BOUTON/debounce_niveau.vhd
+Z5 FC:/Users/admin/Desktop/FPGA/GESTION_BOUTON/debounce_niveau.vhd
+l0
+L10
+VogcXXDT<hdmXf:mEaUUb02
+!s100 b9P`EX2OaBWDj`gSf5U`73
+Z6 OV;C;10.5b;63
+31
+Z7 !s110 1794561743
+!i10b 1
+Z8 !s108 1794561743.000000
+Z9 !s90 -reportprogress|300|-93|-work|work|C:/Users/admin/Desktop/FPGA/GESTION_BOUTON/debounce_niveau.vhd|
+Z10 !s107 C:/Users/admin/Desktop/FPGA/GESTION_BOUTON/debounce_niveau.vhd|
+!i113 1
+Z11 o-93 -work work
+Z12 tExplicit 1 CvgOpt 0
+Artl
+R2
+R3
+Z13 DEx4 work 15 debounce_niveau 0 22 ogcXXDT<hdmXf:mEaUUb02
+l23
+L20
+V_;6Y:DfUW8NDlV?VgOnM:0
+!s100 cGHn>;f36E:5fU]KGh6No2
+R6
+31
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Egestion_boutons
+Z14 w1794560635
+R2
+R3
+R0
+Z15 8../../Gestion_boutons.vhd
+Z16 F../../Gestion_boutons.vhd
+l0
+L15
+VdcITlNjoCM<LYXOWh01^?3
+!s100 X;R6Vnm`;Yd`SPa]oib^P1
+R6
+33
+Z17 !s110 1794561768
+!i10b 1
+Z18 !s108 1794561768.000000
+Z19 !s90 -reportprogress|300|-2008|-work|work|../../Gestion_boutons.vhd|
+Z20 !s107 ../../Gestion_boutons.vhd|
+!i113 1
+Z21 o-2008 -work work
+R12
+Aexmpl
+Z22 DEx4 work 21 gestion_rebond_bouton 0 22 5XWD0[cDAldBR:;kza]T>3
+R2
+R3
+Z23 DEx4 work 15 gestion_boutons 0 22 dcITlNjoCM<LYXOWh01^?3
+l46
+L32
+VEQ5K=BS0ETCDmC?RZm0mI1
+!s100 <d<TQoBY><Cak^LDU8Y:61
+R6
+33
+R17
+!i10b 1
+R18
+R19
+R20
+!i113 1
+R21
+R12
+Egestion_rebond_bouton
+R1
+R2
+R3
+R0
+R4
+R5
+l0
+L58
+V5XWD0[cDAldBR:;kza]T>3
+!s100 mzgS?lPBDjY4md0OG>0KU2
+R6
+31
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Adescription
+R13
+R2
+R3
+R22
+l74
+L73
+VG0gz>JOg?a<fozW?3FfPX3
+!s100 koF7VPz`1g4YeP]7c4>k<1
+R6
+31
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Etb_gestion_boutons
+Z24 w1794560903
+Z25 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+R2
+R3
+R0
+Z26 8tb_gestion_boutons.vhd
+Z27 Ftb_gestion_boutons.vhd
+l0
+L17
+V@GYk6=m^>@nhLPT=BcOzD0
+!s100 bbnBdf_h3Y=Vfz0LP<]Jb0
+R6
+33
+Z28 !s110 1794561769
+!i10b 1
+Z29 !s108 1794561769.000000
+Z30 !s90 -reportprogress|300|-2008|-work|work|tb_gestion_boutons.vhd|
+Z31 !s107 tb_gestion_boutons.vhd|
+!i113 1
+R21
+R12
+Asim
+R23
+R25
+R2
+R3
+DEx4 work 18 tb_gestion_boutons 0 22 @GYk6=m^>@nhLPT=BcOzD0
+l82
+L25
+V2<S6LG5KaYFT:Uen<WUCA0
+!s100 >8a<1g0jCAH@4cdBzMTTF2
+R6
+33
+R28
+!i10b 1
+R29
+R30
+R31
+!i113 1
+R21
+R12

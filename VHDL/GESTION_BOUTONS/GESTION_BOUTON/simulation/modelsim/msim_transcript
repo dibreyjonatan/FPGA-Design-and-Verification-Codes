@@ -1,0 +1,174 @@
+# Reading C:/intelFPGA_lite/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# do Gestion_boutons_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/18.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {C:/Users/admin/Desktop/FPGA/GESTION_BOUTON/debounce_niveau.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:22:23 on Nov 13,2026
+# vcom -reportprogress 300 -93 -work work C:/Users/admin/Desktop/FPGA/GESTION_BOUTON/debounce_niveau.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity debounce_niveau
+# -- Compiling architecture rtl of debounce_niveau
+# -- Compiling entity gestion_rebond_bouton
+# -- Compiling architecture description of gestion_rebond_bouton
+# -- Loading entity debounce_niveau
+# End time: 10:22:23 on Nov 13,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/admin/Desktop/FPGA/GESTION_BOUTON/Gestion_boutons.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:22:23 on Nov 13,2026
+# vcom -reportprogress 300 -93 -work work C:/Users/admin/Desktop/FPGA/GESTION_BOUTON/Gestion_boutons.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Gestion_boutons
+# -- Compiling architecture exmpl of Gestion_boutons
+# -- Loading entity gestion_rebond_bouton
+# End time: 10:22:23 on Nov 13,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+do testbench.tcl
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Modifying modelsim.ini
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:22:48 on Nov 13,2026
+# vcom -reportprogress 300 -2008 -work work ../../Gestion_boutons.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Gestion_boutons
+# -- Compiling architecture exmpl of Gestion_boutons
+# -- Loading entity gestion_rebond_bouton
+# End time: 10:22:49 on Nov 13,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:22:49 on Nov 13,2026
+# vcom -reportprogress 300 -2008 -work work tb_gestion_boutons.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_gestion_boutons
+# -- Compiling architecture sim of tb_gestion_boutons
+# -- Loading entity Gestion_boutons
+# End time: 10:22:49 on Nov 13,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -t ps work.tb_gestion_boutons 
+# Start time: 10:22:49 on Nov 13,2026
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_gestion_boutons(sim)
+# Loading work.gestion_boutons(exmpl)
+# Loading work.gestion_rebond_bouton(description)
+# Loading work.debounce_niveau(rtl)
+# ** Note: === T1 : reset -> etat 0 ===
+#    Time: 0 ps  Iteration: 0  Instance: /tb_gestion_boutons
+# ** Note:     @0 us  code=0000 STBY=00 Bab=00 Tri=00 bip=00
+#    Time: 0 ps  Iteration: 0  Instance: /tb_gestion_boutons
+# ** Note:     @1 us  code=0000 STBY=11 Bab=01 Tri=01 bip=00
+#    Time: 1010 ns  Iteration: 2  Instance: /tb_gestion_boutons
+# ** Note:   [OK]   etat 0 : code 0000, STBY clignote, Babord/Tribord F.E, pas de bip
+#    Time: 2 us  Iteration: 0  Instance: /tb_gestion_boutons
+# ** Note: === T2 : etat 0 -> 1 -> 0 (appui bref sur BP_Babord) ===
+#    Time: 2 us  Iteration: 0  Instance: /tb_gestion_boutons
+# ** Note:     @2 us  code=0000 STBY=00 Bab=00 Tri=00 bip=00
+#    Time: 2 us  Iteration: 2  Instance: /tb_gestion_boutons
+# ** Note:     @3 us  code=0000 STBY=11 Bab=01 Tri=01 bip=00
+#    Time: 3010 ns  Iteration: 2  Instance: /tb_gestion_boutons
+# ** Note:     @50004 us  code=0001 STBY=00 Bab=10 Tri=00 bip=01
+#    Time: 50004090 ns  Iteration: 2  Instance: /tb_gestion_boutons
+# ** Note:     @110004 us  code=0000 STBY=11 Bab=01 Tri=01 bip=00
+#    Time: 110004090 ns  Iteration: 2  Instance: /tb_gestion_boutons
+# ** Note:   [OK]   code 0001 emis (etat 1)
+#    Time: 135004013 ns  Iteration: 0  Instance: /tb_gestion_boutons
+# ** Note:   [OK]   1 bip
+#    Time: 135004013 ns  Iteration: 0  Instance: /tb_gestion_boutons
+# ** Note:   [OK]   retour en etat 0 apres relachement
+#    Time: 135004013 ns  Iteration: 0  Instance: /tb_gestion_boutons
+# ** Note: === T2b : etat 1 maintenu pendant un appui de 2,5 x temporisation ===
+#    Time: 135004013 ns  Iteration: 0  Instance: /tb_gestion_boutons
+# ** Note:     @135004 us  code=0000 STBY=00 Bab=00 Tri=00 bip=00
+#    Time: 135004013 ns  Iteration: 2  Instance: /tb_gestion_boutons
+# ** Note:     @135005 us  code=0000 STBY=11 Bab=01 Tri=01 bip=00
+#    Time: 135005030 ns  Iteration: 2  Instance: /tb_gestion_boutons
+# ** Note:     @185006 us  code=0001 STBY=00 Bab=10 Tri=00 bip=01
+#    Time: 185006110 ns  Iteration: 2  Instance: /tb_gestion_boutons
+# ** Note:   [OK]   [maintien] bouton tenu : etat 1 maintenu (0001, LED Babord ON, 1 bip)
+#    Time: 260006033 ns  Iteration: 0  Instance: /tb_gestion_boutons
+# ** Note:     @310006 us  code=0000 STBY=11 Bab=01 Tri=01 bip=00
+#    Time: 310006110 ns  Iteration: 2  Instance: /tb_gestion_boutons
+# ** Note:   [OK]   un seul appui = une seule entree dans l'etat 1
+#    Time: 335006033 ns  Iteration: 0  Instance: /tb_gestion_boutons
+# ** Note:   [OK]   retour en etat 0
+#    Time: 335006033 ns  Iteration: 0  Instance: /tb_gestion_boutons
+# ** Note: === T3 : etat 0 -> 2 -> 0 (appui bref sur BP_Tribord) ===
+#    Time: 335006033 ns  Iteration: 0  Instance: /tb_gestion_boutons
+# ** Note:     @335006 us  code=0000 STBY=00 Bab=00 Tri=00 bip=00
+#    Time: 335006033 ns  Iteration: 2  Instance: /tb_gestion_boutons
+# ** Note:     @335007 us  code=0000 STBY=11 Bab=01 Tri=01 bip=00
+#    Time: 335007050 ns  Iteration: 2  Instance: /tb_gestion_boutons
+# ** Note:     @385008 us  code=0010 STBY=00 Bab=00 Tri=10 bip=01
+#    Time: 385008130 ns  Iteration: 2  Instance: /tb_gestion_boutons
+# ** Note:     @445008 us  code=0000 STBY=11 Bab=01 Tri=01 bip=00
+#    Time: 445008130 ns  Iteration: 2  Instance: /tb_gestion_boutons
+# ** Note:   [OK]   code 0010 emis (etat 2)
+#    Time: 470008053 ns  Iteration: 0  Instance: /tb_gestion_boutons
+# ** Note:   [OK]   1 bip
+#    Time: 470008053 ns  Iteration: 0  Instance: /tb_gestion_boutons
+# ** Note:   [OK]   retour en etat 0 apres relachement
+#    Time: 470008053 ns  Iteration: 0  Instance: /tb_gestion_boutons
+# ** Note: === T3b : etat 2 maintenu pendant un appui de 2,5 x temporisation ===
+#    Time: 470008053 ns  Iteration: 0  Instance: /tb_gestion_boutons
+# ** Note:     @470008 us  code=0000 STBY=00 Bab=00 Tri=00 bip=00
+#    Time: 470008053 ns  Iteration: 2  Instance: /tb_gestion_boutons
+# ** Note:     @470009 us  code=0000 STBY=11 Bab=01 Tri=01 bip=00
+#    Time: 470009070 ns  Iteration: 2  Instance: /tb_gestion_boutons
+# ** Note:     @520010 us  code=0010 STBY=00 Bab=00 Tri=10 bip=01
+#    Time: 520010150 ns  Iteration: 2  Instance: /tb_gestion_boutons
+# ** Note:   [OK]   [maintien] bouton tenu : etat 2 maintenu (0010, LED Tribord ON, 1 bip)
+#    Time: 595010073 ns  Iteration: 0  Instance: /tb_gestion_boutons
+# ** Note:     @645010 us  code=0000 STBY=11 Bab=01 Tri=01 bip=00
+#    Time: 645010150 ns  Iteration: 2  Instance: /tb_gestion_boutons
+# ** Note:   [OK]   un seul appui = une seule entree dans l'etat 2
+#    Time: 670010073 ns  Iteration: 0  Instance: /tb_gestion_boutons
+# ** Note:   [OK]   retour en etat 0
+#    Time: 670010073 ns  Iteration: 0  Instance: /tb_gestion_boutons
+# ** Note: === T4 : etat 0 -> 3 -> 4 (appui bref sur BP_STBY) ===
+#    Time: 670010073 ns  Iteration: 0  Instance: /tb_gestion_boutons
+# ** Note:     @670010 us  code=0000 STBY=00 Bab=00 Tri=00 bip=00
+#    Time: 670010073 ns  Iteration: 2  Instance: /tb_gestion_boutons
+# ** Note:     @670011 us  code=0000 STBY=11 Bab=01 Tri=01 bip=00
+#    Time: 670011090 ns  Iteration: 2  Instance: /tb_gestion_boutons
+# ** Note:     @720012 us  code=0011 STBY=11 Bab=01 Tri=01 bip=01
+#    Time: 720012170 ns  Iteration: 2  Instance: /tb_gestion_boutons
+# ** Note:     @780012 us  code=0011 STBY=10 Bab=00 Tri=00 bip=00
+#    Time: 780012170 ns  Iteration: 2  Instance: /tb_gestion_boutons
+# ** Note:   [OK]   1 bip (etat 3)
+#    Time: 805012093 ns  Iteration: 0  Instance: /tb_gestion_boutons
+# ** Note:   [OK]   etat 4 : 0011, STBY ON, Babord/Tribord OFF
+#    Time: 805012093 ns  Iteration: 0  Instance: /tb_gestion_boutons
+# ** Note: === T5 : etat 4 -> 5 -> 0 (appui bref sur BP_STBY) ===
+#    Time: 805012093 ns  Iteration: 0  Instance: /tb_gestion_boutons
+# ** Note:     @805012 us  code=0000 STBY=00 Bab=00 Tri=00 bip=00
+#    Time: 805012093 ns  Iteration: 2  Instance: /tb_gestion_boutons
+# ** Note:     @805013 us  code=0000 STBY=11 Bab=01 Tri=01 bip=00
+#    Time: 805013110 ns  Iteration: 2  Instance: /tb_gestion_boutons
+# ** Note:     @855014 us  code=0011 STBY=11 Bab=01 Tri=01 bip=01
+#    Time: 855014190 ns  Iteration: 2  Instance: /tb_gestion_boutons
+# ** Note:     @915014 us  code=0011 STBY=10 Bab=00 Tri=00 bip=00
+#    Time: 915014190 ns  Iteration: 2  Instance: /tb_gestion_boutons
+# ** Note:     @990014 us  code=0000 STBY=10 Bab=00 Tri=00 bip=01
+#    Time: 990014210 ns  Iteration: 2  Instance: /tb_gestion_boutons
