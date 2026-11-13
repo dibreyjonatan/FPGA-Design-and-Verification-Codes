@@ -1,2 +1,5 @@
 *.vcd
 *.ghw
+db/
+*db/
+output_files/
